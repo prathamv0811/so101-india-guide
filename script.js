@@ -143,13 +143,13 @@ function updateSubtotals(filter) {
 
         if (filter === 'follower') {
             subtotalLabel.textContent = 'Electronics Subtotal (Follower)';
-            subtotalValue.textContent = '₹1,429';
+            subtotalValue.textContent = '₹1,510';
         } else if (filter === 'leader') {
             subtotalLabel.textContent = 'Electronics Subtotal (Leader)';
-            subtotalValue.textContent = '₹1,429';
+            subtotalValue.textContent = '₹1,510';
         } else {
             subtotalLabel.textContent = 'Electronics Subtotal';
-            subtotalValue.textContent = '₹2,858';
+            subtotalValue.textContent = '₹3,020';
         }
     }
 }
