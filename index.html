@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SO-101 India Build Guide | Source LeRobot Parts in India</title>
+    <meta name="description"
+        content="Complete sourcing guide for building the LeRobot SO-101 robotic arm in India. Find all parts from Indian suppliers like Evelta and Robu.in with direct purchase links.">
+    <meta name="keywords"
+        content="LeRobot, SO-101, SO-ARM100, robotic arm, India, Feetech STS3215, servo motor, build guide, BOM">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Animated background particles -->
+    <div class="bg-particles" id="particles"></div>
+    <!-- Top Announcement Banner -->
+    <div class="announcement-bar">
+        <span>🖨️ Need 3D printed parts?</span>
+        <a href="https://x.com/PrathamJainAI" target="_blank">Get high-quality SO-101 prints for ₹1,500 — DM
+            @PrathamJainAI on X →</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-icon">🤖</span>
+                <span class="logo-text">SO-101<span class="logo-accent">.india</span></span>
+            </a>
+            <div class="nav-links">
+                <a href="#bom" class="nav-link">Bill of Materials</a>
+                <a href="#motors" class="nav-link">Motors</a>
+                <a href="#electronics" class="nav-link">Electronics</a>
+                <a href="#printing" class="nav-link">3D Printing</a>
+                <a href="#assembly" class="nav-link">Assembly</a>
+            </div>
+            <a href="https://github.com/TheRobotStudio/SO-ARM100" target="_blank" class="nav-cta">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+                GitHub
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                Open Source Robotics
+            </div>
+            <h1 class="hero-title">
+                Build the <span class="gradient-text">SO-101</span><br>
+                Robotic Arm in <span class="gradient-text-alt">India</span>
+            </h1>
+            <p class="hero-subtitle">
+                Complete sourcing guide with Indian suppliers.
+                Every part you need — motors from <strong>Evelta</strong>, electronics from <strong>Robu.in</strong>,
+                and everything else to get your LeRobot arm running.
+            </p>
+            <div class="hero-actions">
+                <a href="#bom" class="btn btn-primary">
+                    <span>View Full BOM</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17l9.2-9.2M17 17V7H7" />
+                    </svg>
+                </a>
+                <a href="https://huggingface.co/docs/lerobot/so101" target="_blank" class="btn btn-secondary">
+                    Assembly Guide ↗
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-value">12</span>
+                    <span class="stat-label">Servo Motors</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-value">~₹28k</span>
+                    <span class="stat-label">Estimated Cost</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-value">6 DOF</span>
+                    <span class="stat-label">Per Arm</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="arm-diagram">
+                <div class="diagram-ring ring-1"></div>
+                <div class="diagram-ring ring-2"></div>
+                <div class="diagram-ring ring-3"></div>
+                <div class="diagram-core">
+                    <span>SO-101</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Overview Section -->
+    <section class="section overview" id="overview">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Overview</span>
+                <h2 class="section-title">What is the SO-101?</h2>
+                <p class="section-desc">
+                    The SO-101 is the next-generation open-source robotic arm by
+                    <a href="https://www.therobotstudio.com" target="_blank">TheRobotStudio</a> &
+                    <a href="https://huggingface.co/lerobot" target="_blank">Hugging Face</a>.
+                    Designed for AI-powered teleoperation with the 🤗 LeRobot library.
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Leader + Follower</h3>
+                    <p>Classic teleoperation setup with a leader arm for control and follower arm that mimics movements
+                        via AI.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>12V High Torque</h3>
+                    <p>Follower arm runs on 12V STS3215-C018 motors with 30kg·cm stall torque for real-world
+                        manipulation.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>AI Ready</h3>
+                    <p>Seamlessly integrates with LeRobot for imitation learning, ACT policies, and diffusion-based
+                        control.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🇮🇳</div>
+                    <h3>Source Locally</h3>
+                    <p>All critical components available from Indian suppliers — no international shipping hassles or
+                        customs duties.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOM Section -->
+    <section class="section bom-section" id="bom">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Bill of Materials</span>
+                <h2 class="section-title">Complete Parts List</h2>
+                <p class="section-desc">
+                    Everything you need to build both Leader and Follower arms.
+                    Click any item to go directly to the product page.
+                </p>
+            </div>
+
+            <!-- Arm Type Tabs -->
+            <div class="bom-tabs">
+                <button class="bom-tab active" data-tab="both">Both Arms (Full Kit)</button>
+                <button class="bom-tab" data-tab="follower">Follower Only</button>
+                <button class="bom-tab" data-tab="leader">Leader Only</button>
+            </div>
+
+            <!-- Motors Section -->
+            <div class="bom-category" id="motors">
+                <div class="category-header">
+                    <div class="category-icon">⚙️</div>
+                    <div>
+                        <h3>Servo Motors</h3>
+                        <p>Feetech STS3215 Series — from <a href="https://www.evelta.com" target="_blank">Evelta.com</a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="parts-table">
+                    <div class="table-header">
+                        <span>Component</span>
+                        <span>Spec</span>
+                        <span>Used In</span>
+                        <span>Qty</span>
+                        <span>Unit Price (excl. tax)</span>
+                        <span>Buy</span>
+                    </div>
+
+                    <div class="table-row" data-arm="follower">
+                        <div class="part-name">
+                            <span class="part-badge follower">Follower</span>
+                            STS3215-C018
+                        </div>
+                        <div class="part-spec">12V · 30kg·cm · 1:345 gear</div>
+                        <div class="part-usage">Follower Joints 1–6</div>
+                        <div class="part-qty">6×</div>
+                        <div class="part-price">₹1,684</div>
+                        <div class="part-buy">
+                            <a href="https://evelta.com/st3215-c018-12v-30kg-360deg-dual-shaft-ttl-servo-motor/"
+                                target="_blank" class="buy-link evelta">
+                                Evelta ↗
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="table-row" data-arm="leader">
+                        <div class="part-name">
+                            <span class="part-badge leader">Leader</span>
+                            STS3215-C001
+                        </div>
+                        <div class="part-spec">7.4V · 19kg·cm · 1:345 gear</div>
+                        <div class="part-usage">Leader Joint 2</div>
+                        <div class="part-qty">1×</div>
+                        <div class="part-price">₹1,684</div>
+                        <div class="part-buy">
+                            <a href="https://www.evelta.com/sts3215-7-4v-19kg-dual-axis-ttl-string-servo-motor/"
+                                target="_blank" class="buy-link evelta">
+                                Evelta ↗
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="table-row" data-arm="leader">
+                        <div class="part-name">
+                            <span class="part-badge leader">Leader</span>
+                            STS3215-C044
+                        </div>
+                        <div class="part-spec">7.4V · 1:191 gear · 86 RPM</div>
+                        <div class="part-usage">Leader Joints 1 & 3</div>
+                        <div class="part-qty">2×</div>
+                        <div class="part-price">₹1,602</div>
+                        <div class="part-buy">
+                            <a href="https://www.evelta.com/sts3215-c044-7-4v-1-191-86rpm-metal-gear-dual-axis-ttl-serial-bus-servo-motor/"
+                                target="_blank" class="buy-link evelta">
+                                Evelta ↗
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="table-row" data-arm="leader">
+                        <div class="part-name">
+                            <span class="part-badge leader">Leader</span>
+                            STS3215-C046
+                        </div>
+                        <div class="part-spec">7.4V · 1:147 gear · Magnetic Enc.</div>
+                        <div class="part-usage">Leader Joints 4, 5, 6 (Gripper)</div>
+                        <div class="part-qty">3×</div>
+                        <div class="part-price">₹1,602</div>
+                        <div class="part-buy">
+                            <a href="https://www.evelta.com/sts3215-c046-7-4v-1-147-magnetic-encoding-metal-gear-dual-axis-ttl-serial-bus-servo-motor/"
+                                target="_blank" class="buy-link evelta">
+                                Evelta ↗
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cost-subtotal">
+                    <span>Motors Subtotal (Both Arms)</span>
+                    <span class="subtotal-value">₹19,720</span>
+                </div>
+            </div>
+
+            <!-- Electronics Section -->
+            <div class="bom-category" id="electronics">
+                <div class="category-header">
+                    <div class="category-icon">🔌</div>
+                    <div>
+                        <h3>Electronics & Power</h3>
+                        <p>Controller boards, power supplies & cables — from <a href="https://robu.in"
+                                target="_blank">Robu.in</a></p>
+                    </div>
+                </div>
+
+                <div class="parts-table">
+                    <div class="table-header">
+                        <span>Component</span>
+                        <span>Spec</span>
+                        <span>Used In</span>
+                        <span>Qty</span>
+                        <span>Unit Price (excl. tax)</span>
+                        <span>Buy</span>
+                    </div>
+
+                    <div class="table-row" data-arm="both">
+                        <div class="part-name">
+                            <span class="part-badge both">Both</span>
+                            Waveshare Servo Driver Board
+                        </div>
+                        <div class="part-spec">Serial Bus · ST/SC Series</div>
+                        <div class="part-usage">Motor Controller (×2)</div>
+                        <div class="part-qty">2×</div>
+                        <div class="part-price">₹462</div>
+                        <div class="part-buy">
+                            <a href="https://robu.in/product/waveshare-serial-bus-servo-driver-board-integrates-servo-power-supply-and-control-circuit-applicable-for-st-sc-series-serial-bus-servos/"
+                                target="_blank" class="buy-link robu">
+                                Robu.in ↗
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="table-row" data-arm="follower">
+                        <div class="part-name">
+                            <span class="part-badge follower">Follower</span>
+                            12V 5A Power Adapter
+                        </div>
+                        <div class="part-spec">60W · 5.5×2.5mm DC · BIS Cert</div>
+                        <div class="part-usage">Follower Arm Power</div>
+                        <div class="part-qty">1×</div>
+                        <div class="part-price">₹849</div>
+                        <div class="part-buy">
+                            <a href="https://robu.in/product/pro-range-12v-5a-power-adapter/" target="_blank"
+                                class="buy-link robu">
+                                Robu.in ↗
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="table-row" data-arm="leader">
+                        <div class="part-name">
+                            <span class="part-badge leader">Leader</span>
+                            5V 5A Power Adapter
+                        </div>
+                        <div class="part-spec">25W · 5.5×2.5mm DC · BIS Cert</div>
+                        <div class="part-usage">Leader Arm Power</div>
+                        <div class="part-qty">1×</div>
+                        <div class="part-price">₹849</div>
+                        <div class="part-buy">
+                            <a href="https://robu.in/product/pro-range-5v-5a-power-adapter/" target="_blank"
+                                class="buy-link robu">
+                                Robu.in ↗
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="table-row" data-arm="both">
+                        <div class="part-name">
+                            <span class="part-badge both">Both</span>
+                            USB-C to USB-C Cable
+                        </div>
+                        <div class="part-spec">1M · USB 3.0</div>
+                        <div class="part-usage">PC to Driver Board</div>
+                        <div class="part-qty">2×</div>
+                        <div class="part-price">₹118</div>
+                        <div class="part-buy">
+                            <a href="https://robu.in/product/orange-usb-3-0-type-a-to-type-c-cable-1m-white/"
+                                target="_blank" class="buy-link robu">
+                                Robu.in ↗
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cost-subtotal">
+                    <span>Electronics Subtotal</span>
+                    <span class="subtotal-value">₹2,858</span>
+                </div>
+            </div>
+
+            <!-- 3D Printing & Hardware Section -->
+            <div class="bom-category" id="printing">
+                <div class="category-header">
+                    <div class="category-icon">🖨️</div>
+                    <div>
+                        <h3>3D Printed Parts & Hardware</h3>
+                        <p>Structural parts and tools — Print yourself or order from a service</p>
+                    </div>
+                </div>
+
+                <div class="parts-table">
+                    <div class="table-header">
+                        <span>Component</span>
+                        <span>Spec</span>
+                        <span>Used In</span>
+                        <span>Qty</span>
+                        <span>Est. Price (excl. tax)</span>
+                        <span>Source</span>
+                    </div>
+
+                    <div class="table-row" data-arm="both">
+                        <div class="part-name">
+                            <span class="part-badge both">Both</span>
+                            3D Print Service by @PrathamJainAI
+                        </div>
+                        <div class="part-spec">PLA+ · High quality · Ready to assemble</div>
+                        <div class="part-usage">Leader + Follower Bodies</div>
+                        <div class="part-qty">1 set</div>
+                        <div class="part-price">₹1,500 *</div>
+                        <div class="part-buy">
+                            <a href="https://x.com/PrathamJainAI" target="_blank" class="buy-link evelta">
+                                DM on X ↗
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="table-row" data-arm="both">
+                        <div class="part-name">
+                            <span class="part-badge both">Both</span>
+                            PLA+ Filament (Self Print)
+                        </div>
+                        <div class="part-spec">1kg · 15% Infill · 0.4mm nozzle</div>
+                        <div class="part-usage">DIY Printing</div>
+                        <div class="part-qty">1 roll</div>
+                        <div class="part-price">₹500–800</div>
+                        <div class="part-buy">
+                            <a href="https://numakers.in" target="_blank" class="buy-link robu">
+                                NuMakers ↗
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="table-row" data-arm="both">
+                        <div class="part-name">
+                            <span class="part-badge both">Both</span>
+                            Table Clamps
+                        </div>
+                        <div class="part-spec">Spring / Ratchet Clamp</div>
+                        <div class="part-usage">Mounting Arms to Desk</div>
+                        <div class="part-qty">2×</div>
+                        <div class="part-price">₹200–400</div>
+                        <div class="part-buy">
+                            <a href="https://www.amazon.in/Homdum%C2%AE-Heavy-Clamp-Clamping-Pieces/dp/B081JZLFCY/"
+                                target="_blank" class="buy-link amazon">
+                                Amazon.in ↗
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="table-row" data-arm="both">
+                        <div class="part-name">
+                            <span class="part-badge both">Both</span>
+                            Screwdriver Set
+                        </div>
+                        <div class="part-spec">Phillips #0 & #1</div>
+                        <div class="part-usage">Assembly Tool</div>
+                        <div class="part-qty">1×</div>
+                        <div class="part-price">₹300–500</div>
+                        <div class="part-buy">
+                            <a href="https://www.amazon.in/s?k=precision+screwdriver+set+phillips" target="_blank"
+                                class="buy-link amazon">
+                                Amazon.in ↗
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="print-note">* 3D print service price excludes delivery charges. DM <a
+                        href="https://x.com/PrathamJainAI" target="_blank">@PrathamJainAI</a> on X for high quality
+                    prints.</p>
+            </div>
+
+            <!-- Total Cost -->
+            <div class="cost-total">
+                <div class="total-card">
+                    <div class="total-header">
+                        <h3>💰 Estimated Total Cost</h3>
+                        <p>Both Arms · Full Teleoperation Kit</p>
+                    </div>
+                    <div class="total-breakdown">
+                        <div class="breakdown-row">
+                            <span>Servo Motors (12×)</span>
+                            <span>₹19,720</span>
+                        </div>
+                        <div class="breakdown-row">
+                            <span>Electronics & Power</span>
+                            <span>₹2,858</span>
+                        </div>
+                        <div class="breakdown-row">
+                            <span>3D Printing + Hardware</span>
+                            <span>~₹2,500</span>
+                        </div>
+                        <div class="breakdown-divider"></div>
+                        <div class="breakdown-row total">
+                            <span>Estimated Total</span>
+                            <span>~₹25,000 – ₹28,000</span>
+                        </div>
+                    </div>
+                    <p class="total-note">* Prices are approximate and may vary. Excludes shipping & GST.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Assembly Quick Guide -->
+    <section class="section assembly-section" id="assembly">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Next Steps</span>
+                <h2 class="section-title">After Sourcing</h2>
+                <p class="section-desc">Once you have all parts, follow these steps to build and run your SO-101.</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">01</div>
+                    <h3>3D Print</h3>
+                    <p>Download STL files from the official repo. Print with PLA+, 15% infill, 0.4mm nozzle at 0.2mm
+                        layer height.</p>
+                    <a href="https://github.com/TheRobotStudio/SO-ARM100/tree/main/STL/SO101" target="_blank"
+                        class="step-link">Get STL Files →</a>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">02</div>
+                    <h3>Assemble</h3>
+                    <p>Follow the official Hugging Face assembly guide. No gear removal required for SO-101 (improved
+                        over SO-100).</p>
+                    <a href="https://huggingface.co/docs/lerobot/so101" target="_blank" class="step-link">Assembly Guide
+                        →</a>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">03</div>
+                    <h3>Setup LeRobot</h3>
+                    <p>Install the LeRobot library, configure motor IDs, calibrate your arms, and start collecting
+                        teleoperation data.</p>
+                    <a href="https://github.com/huggingface/lerobot" target="_blank" class="step-link">LeRobot GitHub
+                        →</a>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">04</div>
+                    <h3>Train & Deploy</h3>
+                    <p>Train imitation learning policies (ACT, Diffusion, π0) on your collected data, then deploy for
+                        autonomous operation.</p>
+                    <a href="https://huggingface.co/docs/lerobot" target="_blank" class="step-link">Documentation →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Important Notes Section -->
+    <section class="section notes-section">
+        <div class="container">
+            <div class="notes-grid">
+                <div class="note-card warning">
+                    <div class="note-icon">⚠️</div>
+                    <h3>Voltage Warning</h3>
+                    <p>The follower arm uses <strong>12V motors (C018)</strong> with a <strong>12V 5A power
+                            supply</strong>. The leader arm uses <strong>7.4V motors</strong> with a <strong>5V power
+                            supply</strong>. <strong>Never mix power supplies between arms!</strong></p>
+                </div>
+                <div class="note-card tip">
+                    <div class="note-icon">💡</div>
+                    <h3>Motor Gear Ratios</h3>
+                    <p>The SO-101 leader arm uses <strong>three different gear ratios</strong> for better handling:
+                        1:345 (Joint 2), 1:191 (Joints 1 & 3), and 1:147 (Joints 4-6). Make sure to order the correct
+                        variants!</p>
+                </div>
+                <div class="note-card info">
+                    <div class="note-icon">📦</div>
+                    <h3>Shipping in India</h3>
+                    <p>Both <strong>Evelta</strong> and <strong>Robu.in</strong> ship pan-India. Expect delivery within
+                        3-7 business days. For 3D printing, check local services or <a
+                            href="https://github.com/TheRobotStudio/SO-ARM100/blob/main/3DPRINT.md"
+                            target="_blank">printing services guide</a>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">🤖</span>
+                    <span class="logo-text">SO-101<span class="logo-accent">.india</span></span>
+                    <p>Community sourcing guide for building the LeRobot SO-101 in India.</p>
+                    <a href="https://x.com/PrathamJainAI" target="_blank" class="twitter-handle">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                        </svg>
+                        @PrathamJainAI
+                    </a>
+                </div>
+                <div class="footer-links">
+                    <h4>Official Resources</h4>
+                    <a href="https://github.com/TheRobotStudio/SO-ARM100" target="_blank">SO-ARM100 GitHub</a>
+                    <a href="https://huggingface.co/docs/lerobot/so101" target="_blank">Assembly Guide</a>
+                    <a href="https://github.com/huggingface/lerobot" target="_blank">LeRobot Library</a>
+                    <a href="https://discord.gg/ggrqhPTsMe" target="_blank">Discord Community</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Indian Suppliers</h4>
+                    <a href="https://www.evelta.com" target="_blank">Evelta.com</a>
+                    <a href="https://robu.in" target="_blank">Robu.in</a>
+                    <a href="https://www.amazon.in" target="_blank">Amazon.in</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>This is an unofficial community guide. Not affiliated with TheRobotStudio or Hugging Face.</p>
+                <p>Prices last verified: April 2026. Always check supplier sites for current pricing.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
