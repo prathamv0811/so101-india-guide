@@ -180,7 +180,8 @@ a {
 
 .nav-links {
     display: flex;
-    gap: 0;
+    align-items: center;
+    gap: 4px;
 }
 
 .nav-link {
@@ -193,6 +194,26 @@ a {
 
 .nav-link:hover {
     color: var(--text-secondary);
+}
+
+.nav-service-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 12px;
+    margin-left: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+    border: 1px solid rgba(222, 123, 85, 0.35);
+    border-radius: 999px;
+    background: rgba(222, 123, 85, 0.08);
+    transition: var(--transition);
+}
+
+.nav-service-link:hover {
+    color: #fff;
+    border-color: transparent;
+    background: var(--accent);
 }
 
 .nav-cta {
