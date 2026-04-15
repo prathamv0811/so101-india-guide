@@ -18,9 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalPriceEl = document.getElementById('totalPrice');
 
     const pricingByArm = {
-        full: 2000,
-        follower: 1400,
-        leader: 1200
+        full: 3000,
+        follower: 2200,
+        leader: 2000
     };
 
     const finishPricing = {
@@ -29,12 +29,11 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const shippingPricing = {
-        regular: 150,
-        express: 400
+        delhivery: 150
     };
 
     // Replace this key with your own Razorpay Key ID before production use.
-    const RAZORPAY_KEY_ID = window.RAZORPAY_KEY_ID || 'rzp_test_REPLACE_ME';
+    const RAZORPAY_KEY_ID = window.RAZORPAY_KEY_ID || 'rzp_test_Sdfm6KYyhry4v1';
     const UPI_ID = 'prathamjainai@oksbi';
     let hasSuccessfulPayment = false;
 

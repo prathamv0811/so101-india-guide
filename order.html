@@ -16,6 +16,9 @@
 </head>
 
 <body>
+    <div class="order-glow order-glow-1"></div>
+    <div class="order-glow order-glow-2"></div>
+
     <nav class="navbar order-navbar" id="navbar">
         <div class="nav-container">
             <a href="index.html" class="nav-logo">
@@ -25,17 +28,25 @@
             <div class="nav-links">
                 <a href="index.html" class="nav-link">Back to Guide</a>
             </div>
-            <a href="https://x.com/PrathamJainAI" target="_blank" class="nav-cta">Contact</a>
+            <span class="order-nav-pill">Secure Checkout</span>
         </div>
     </nav>
 
     <main class="order-page">
         <section class="order-hero">
             <div class="container">
-                <span class="section-tag">Print Service</span>
-                <h1 class="section-title">Order SO-101 Prints and Pay Online</h1>
-                <p class="section-desc">Fill your order details, check final pricing, and pay securely with
-                    Razorpay. After a successful payment, submit your order in one click.</p>
+                <div class="order-hero-topline">
+                    <span class="section-tag">Print Service</span>
+                    <span class="order-chip">Orange Prints Only</span>
+                </div>
+                <h1 class="section-title">Precision SO-101 Prints.<br>Delivered to Your Door.</h1>
+                <p class="section-desc">Submit your details, confirm live total, and complete secure payment.
+                    Your order is locked in immediately after successful payment.</p>
+                <div class="order-badges">
+                    <span>Base Print Rate: ₹3,000</span>
+                    <span>Delhivery Shipping: ₹150</span>
+                    <span>Razorpay Secure</span>
+                </div>
             </div>
         </section>
 
@@ -43,6 +54,7 @@
             <div class="container order-layout">
                 <form id="orderForm" class="order-form">
                     <h2>Your Print Order</h2>
+                    <p class="order-subtitle">Fill all fields accurately so dispatch is smooth.</p>
 
                     <div class="form-row">
                         <label for="fullName">Full Name</label>
@@ -91,8 +103,7 @@
                         <div class="form-row">
                             <label for="shipping">Shipping</label>
                             <select id="shipping" name="shipping">
-                                <option value="regular">Regular (5-7 days) +₹150</option>
-                                <option value="express">Express (2-3 days) +₹400</option>
+                                <option value="delhivery">Delhivery Standard (5-7 days) +₹150</option>
                             </select>
                         </div>
                     </div>
@@ -131,10 +142,11 @@
 
                 <aside class="order-summary">
                     <h2>Order Summary</h2>
+                    <p class="order-subtitle">Auto-updates as you change options.</p>
                     <div class="summary-list">
                         <div class="summary-row">
                             <span>Base Price</span>
-                            <span id="basePrice">₹2,000</span>
+                            <span id="basePrice">₹3,000</span>
                         </div>
                         <div class="summary-row">
                             <span>Finish Add-on</span>
@@ -151,7 +163,7 @@
                         <div class="summary-divider"></div>
                         <div class="summary-row total">
                             <span>Total Payable</span>
-                            <span id="totalPrice">₹2,150</span>
+                            <span id="totalPrice">₹3,150</span>
                         </div>
                     </div>
                     <ul class="summary-points">
