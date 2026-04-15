@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const pricingByArm = {
         full: 3000,
-        follower: 2200,
+        follower: 2000,
         leader: 2000
     };
 
