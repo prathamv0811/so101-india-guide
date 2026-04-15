@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('orderForm');
     const payNowBtn = document.getElementById('payNowBtn');
-    const payViaUpiBtn = document.getElementById('payViaUpiBtn');
     const orderMessage = document.getElementById('orderMessage');
 
     const armType = document.getElementById('armType');
@@ -158,19 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     payNowBtn.addEventListener('click', () => {
         launchRazorpay();
-    });
-
-    payViaUpiBtn.addEventListener('click', () => {
-        const totals = getTotal();
-        const customerName = document.getElementById('fullName').value.trim();
-        const upiLink = buildUPILink(totals.total, customerName);
-
-        hasSuccessfulPayment = false;
-        paymentRefEl.value = '';
-        paymentMethodEl.value = 'upi-manual';
-        window.location.href = upiLink;
-
-        setSuccess('UPI payment request opened. Enter your transaction ID below after payment, then submit order.');
     });
 
     form.addEventListener('submit', (event) => {
