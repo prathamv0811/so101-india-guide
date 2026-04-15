@@ -1,20 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('orderForm');
-    const payNowBtn = document.getElementById('payNowBtn');
     const orderMessage = document.getElementById('orderMessage');
 
     const armType = document.getElementById('armType');
     const quantity = document.getElementById('quantity');
     const finish = document.getElementById('finish');
     const shipping = document.getElementById('shipping');
-    const paymentRefEl = document.getElementById('paymentRef');
-    const paymentMethodEl = document.getElementById('paymentMethod');
-
-    const basePriceEl = document.getElementById('basePrice');
-    const finishPriceEl = document.getElementById('finishPrice');
-    const shippingPriceEl = document.getElementById('shippingPrice');
-    const summaryQtyEl = document.getElementById('summaryQty');
-    const totalPriceEl = document.getElementById('totalPrice');
 
     const pricingByArm = {
         full: 3000,
@@ -30,11 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const shippingPricing = {
         delhivery: 150
     };
-
-    // Replace this key with your own Razorpay Key ID before production use.
-    const RAZORPAY_KEY_ID = window.RAZORPAY_KEY_ID || 'fjgode0ZSSbj7dGlOf6FxZ8V';
-    const UPI_ID = 'prathamjainai@oksbi';
-    let hasSuccessfulPayment = false;
 
     const formatINR = (amount) => {
         return `₹${amount.toLocaleString('en-IN')}`;
@@ -56,137 +42,49 @@ document.addEventListener('DOMContentLoaded', () => {
             finishCost,
             shippingCost,
             selectedQty,
-            total
+            total,
+            armTypeLabel: armType.options[armType.selectedIndex].text
         };
     };
 
-    const updateSummary = () => {
+    const buildTwitterMessage = () => {
+        const fullName = document.getElementById('fullName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const address = document.getElementById('address').value.trim();
+        const armTypeLabel = armType.options[armType.selectedIndex].text;
+        const qty = quantity.value;
+        const finishLabel = finish.options[finish.selectedIndex].text;
+        const notes = document.getElementById('notes').value.trim();
         const totals = getTotal();
-        basePriceEl.textContent = formatINR(totals.base);
-        finishPriceEl.textContent = formatINR(totals.finishCost);
-        shippingPriceEl.textContent = formatINR(totals.shippingCost);
-        summaryQtyEl.textContent = String(totals.selectedQty);
-        totalPriceEl.textContent = formatINR(totals.total);
+
+        const message = `Hi Pratham! 👋\n\nI'd like to order SO-101 prints:\n\n📋 **Order Details:**\n• Print Type: ${armTypeLabel}\n• Quantity: ${qty}\n• Finish: ${finishLabel}\n• Color: Orange\n• Shipping: Delhivery Standard (+₹150)\n• Total Amount: ${formatINR(totals.total)}\n\n👤 **Customer Info:**\n• Name: ${fullName}\n• Email: ${email}\n• Phone: ${phone}\n• Address: ${address}\n\n${notes ? `📝 Notes: ${notes}` : ''}\n\nPlease confirm this order and send payment details. Thanks!`;
+
+        return message;
     };
-
-    const buildUPILink = (amount, customerName) => {
-        const payeeName = 'Pratham Jain';
-        const transactionNote = `SO-101 print order for ${customerName || 'customer'}`;
-
-        return `upi://pay?pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent(payeeName)}&am=${encodeURIComponent(
-            amount
-        )}&cu=INR&tn=${encodeURIComponent(transactionNote)}`;
-    };
-
-    const setError = (message) => {
-        orderMessage.textContent = message;
-        orderMessage.classList.add('error');
-    };
-
-    const setSuccess = (message) => {
-        orderMessage.textContent = message;
-        orderMessage.classList.remove('error');
-    };
-
-    const getCustomer = () => {
-        return {
-            name: document.getElementById('fullName').value.trim(),
-            email: document.getElementById('email').value.trim(),
-            contact: document.getElementById('phone').value.trim()
-        };
-    };
-
-    const launchRazorpay = () => {
-        if (typeof window.Razorpay !== 'function') {
-            setError('Razorpay SDK failed to load. Please refresh and try again.');
-            return;
-        }
-
-        if (RAZORPAY_KEY_ID === 'rzp_test_REPLACE_ME') {
-            setError('Set your Razorpay Key ID in order.js before taking live payments.');
-            return;
-        }
-
-        const customer = getCustomer();
-        if (!customer.name || !customer.email || !customer.contact) {
-            setError('Please fill name, email, and phone before payment.');
-            return;
-        }
-
-        const totals = getTotal();
-        const options = {
-            key: RAZORPAY_KEY_ID,
-            amount: totals.total * 100,
-            currency: 'INR',
-            name: 'SO-101 Print Service',
-            description: `${armType.options[armType.selectedIndex].text} x${totals.selectedQty}`,
-            prefill: customer,
-            notes: {
-                armType: armType.value,
-                quantity: String(totals.selectedQty),
-                finish: finish.value,
-                shipping: shipping.value,
-                color: 'orange'
-            },
-            theme: {
-                color: '#c96442'
-            },
-            handler: function (response) {
-                hasSuccessfulPayment = true;
-                paymentRefEl.value = response.razorpay_payment_id || '';
-                paymentMethodEl.value = 'razorpay';
-                setSuccess('Payment successful. Your payment reference has been captured. Submit your order now.');
-            },
-            modal: {
-                ondismiss: function () {
-                    if (!hasSuccessfulPayment) {
-                        setError('Payment was cancelled. Complete payment to submit your order.');
-                    }
-                }
-            }
-        };
-
-        const checkout = new window.Razorpay(options);
-        checkout.open();
-    };
-
-    [armType, quantity, finish, shipping].forEach((field) => {
-        field.addEventListener('change', updateSummary);
-        field.addEventListener('input', updateSummary);
-    });
-
-    payNowBtn.addEventListener('click', () => {
-        launchRazorpay();
-    });
 
     form.addEventListener('submit', (event) => {
         event.preventDefault();
 
-        const paymentRef = paymentRefEl.value.trim();
-        if (!paymentRef) {
-            setError('Please complete payment first and ensure payment reference is available.');
+        const fullName = document.getElementById('fullName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const address = document.getElementById('address').value.trim();
+
+        if (!fullName || !email || !phone || !address) {
+            orderMessage.textContent = 'Please fill all required fields before submitting.';
+            orderMessage.classList.add('error');
             return;
         }
 
-        if (paymentMethodEl.value === 'razorpay' && !hasSuccessfulPayment) {
-            setError('Razorpay payment is not confirmed yet. Please pay again and submit after success.');
-            return;
-        }
+        const message = buildTwitterMessage();
+        const twitterUrl = `https://x.com/intent/tweet?text=${encodeURIComponent(message)}`;
+        
+        window.open(twitterUrl, '_blank', 'width=550,height=420');
 
-        const totals = getTotal();
-        const orderId = `SO101-${Date.now().toString().slice(-6)}`;
-
-        setSuccess(`Payment received for ${formatINR(
-            totals.total
-        )}. Your order ${orderId} has been submitted successfully.`);
+        orderMessage.textContent = 'Order details ready! You can also DM directly: https://x.com/messages/compose?recipient_id=PrathamJainAI';
+        orderMessage.classList.remove('error');
 
         form.reset();
-        quantity.value = '1';
-        hasSuccessfulPayment = false;
-        paymentRefEl.value = '';
-        paymentMethodEl.value = '';
-        updateSummary();
     });
-
-    updateSummary();
 });

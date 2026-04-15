@@ -28,7 +28,7 @@
             <div class="nav-links">
                 <a href="index.html" class="nav-link">Back to Guide</a>
             </div>
-            <span class="order-nav-pill">Secure Checkout</span>
+            <a href="https://x.com/PrathamJainAI" target="_blank" class="order-nav-pill">📧 Contact on X</a>
         </div>
     </nav>
 
@@ -40,8 +40,7 @@
                     <span class="order-chip">Orange Prints Only</span>
                 </div>
                 <h1 class="section-title">Precision SO-101 Prints.<br>Delivered to Your Door.</h1>
-                <p class="section-desc">Submit your details, confirm live total, and complete secure payment.
-                    Your order is locked in immediately after successful payment.</p>
+                <p class="section-desc">Fill your print order details below and submit via Twitter/X. We'll confirm within 24 hours.</p>
             </div>
         </section>
 
@@ -115,63 +114,54 @@
                     </div>
 
                     <div class="payment-panel">
-                        <h3>Payment</h3>
-                        <p>Secure Checkout powered by Razorpay.</p>
-                        <div class="payment-actions">
-                            <button type="button" class="btn btn-primary" id="payNowBtn">Pay with Razorpay</button>
-                        </div>
-                        <p class="payment-help">Razorpay payment ID will auto-fill below after successful payment.</p>
-
-                        <div class="form-row">
-                            <label for="paymentRef">Payment Reference</label>
-                            <input type="text" id="paymentRef" name="paymentRef" readonly>
-                        </div>
-
-                        <input type="hidden" id="paymentMethod" name="paymentMethod" value="">
+                        <h3>Submit Your Order</h3>
+                        <p>Click below to send your order details to us via Twitter/X. We'll respond with payment instructions.</p>
+                        <button type="submit" class="btn btn-primary full-width">Submit Order on X</button>
                     </div>
-
-                    <button type="submit" class="btn btn-secondary full-width">Submit Paid Order</button>
                     <p id="orderMessage" class="order-message" aria-live="polite"></p>
                 </form>
 
                 <aside class="order-summary">
-                    <h2>Order Summary</h2>
-                    <p class="order-subtitle">Auto-updates as you change options.</p>
-                    <div class="summary-list">
-                        <div class="summary-row">
-                            <span>Base Price</span>
-                            <span id="basePrice">₹3,000</span>
+                    <h2>Pricing Table</h2>
+                    <p class="order-subtitle">All rates including Delhivery shipping.</p>
+                    <div class="pricing-table">
+                        <div class="pricing-header">
+                            <span>Print Type</span>
+                            <span>Base Rate</span>
+                            <span>Premium</span>
+                            <span>With Shipping</span>
                         </div>
-                        <div class="summary-row">
-                            <span>Finish Add-on</span>
-                            <span id="finishPrice">₹0</span>
+                        <div class="pricing-row">
+                            <span>Leader + Follower</span>
+                            <span>₹3,000</span>
+                            <span>₹3,250</span>
+                            <span>₹3,150 / ₹3,400</span>
                         </div>
-                        <div class="summary-row">
-                            <span>Shipping</span>
-                            <span id="shippingPrice">₹150</span>
+                        <div class="pricing-row">
+                            <span>Follower Only</span>
+                            <span>₹2,000</span>
+                            <span>₹2,250</span>
+                            <span>₹2,150 / ₹2,400</span>
                         </div>
-                        <div class="summary-row">
-                            <span>Quantity</span>
-                            <span id="summaryQty">1</span>
-                        </div>
-                        <div class="summary-divider"></div>
-                        <div class="summary-row total">
-                            <span>Total Payable</span>
-                            <span id="totalPrice">₹3,150</span>
+                        <div class="pricing-row">
+                            <span>Leader Only</span>
+                            <span>₹2,000</span>
+                            <span>₹2,250</span>
+                            <span>₹2,150 / ₹2,400</span>
                         </div>
                     </div>
                     <ul class="summary-points">
-                        <li>Currently available print color: Orange only.</li>
-                        <li>Price includes quality-checked printed parts.</li>
-                        <li>Delivery timeline starts after payment confirmation.</li>
-                        <li>You will receive order confirmation on email/phone.</li>
+                        <li><strong>Base Rate:</strong> Standard finish</li>
+                        <li><strong>Premium:</strong> +₹250 per set</li>
+                        <li><strong>Shipping:</strong> Delhivery +₹150</li>
+                        <li><strong>Color:</strong> Orange only</li>
+                        <li><strong>Delivery:</strong> 5-7 days after confirmation</li>
                     </ul>
                 </aside>
             </div>
         </section>
     </main>
 
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src="order.js"></script>
 </body>
 
