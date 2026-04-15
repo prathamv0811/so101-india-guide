@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Replace this key with your own Razorpay Key ID before production use.
-    const RAZORPAY_KEY_ID = window.RAZORPAY_KEY_ID || 'rzp_test_Sdfm6KYyhry4v1';
+    const RAZORPAY_KEY_ID = window.RAZORPAY_KEY_ID || 'MuYO4HhQ86ifdTfNRmQbSXGT';
     const UPI_ID = 'prathamjainai@oksbi';
     let hasSuccessfulPayment = false;
 
